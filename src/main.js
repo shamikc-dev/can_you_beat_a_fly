@@ -376,7 +376,7 @@ function moveFly() {
   gameState.statusRing.y += dy;
   gameState.fly.y += dy;
 
-  gameState.distanceTraveled += Phaser.Math.sqrt(dx * dx + dy * dy);
+  gameState.distanceTraveled += Math.sqrt(dx * dx + dy * dy);
 
   let cursorKeys = gameState.joystick.createCursorKeys();
   var leftKeyDown = cursorKeys.left.isDown;
