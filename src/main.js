@@ -48,7 +48,6 @@ class BootScene extends Phaser.Scene {
         if (on) {
           instructMessage3.visible = false;
           on = false;
-          console.log("on!")
         } else { 
           instructMessage3.visible = true;
           on = true;
@@ -235,7 +234,6 @@ class HeatmapScene extends Phaser.Scene {
   }
 
   create() {
-    console.log(this.x);
     gameState.source = new Phaser.Math.Vector2(this.x, this.y);
     gameState.slope = this.slope;
     generateHeatmap(this, gameState);
@@ -369,8 +367,6 @@ function moveFly() {
   let dx = force * Math.cos(angle);
   let dy = -1 * force * Math.sin(angle);
 
-  console.log(dx);
-
   gameState.statusRing.x += dx;
   gameState.fly.x += dx;
   gameState.statusRing.y += dy;
@@ -411,7 +407,6 @@ function generateHeatmap(scene, gameState) {
       let y_diff = gameState.source.y - y;
       let point = rotate(x_diff, y_diff, gameState.slope);
       let plumeIntensity = Math.log(Gaussian(point.x, point.y, 0.25));
-      console.log(plumeIntensity);
 
       let tile = scene.add.rectangle(x, y, 2.5, 2.5, setTileColor(plumeIntensity));
     }
